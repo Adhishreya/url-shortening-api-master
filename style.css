@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+body,html
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+nav li 
+{
+    margin: 1rem;
+    color: hsl(257, 22%, 78%);
+}
+ul
+{
+    list-style: none;
+}
+nav ul
+{
+    display: inline-flex;
+}
+nav
+{
+    display: flex;
+    flex-direction: row;
+}
+.left
+{
+    align-self :auto;
+}
+nav li 
+{
+    margin: 1rem;
+}
+.main
+{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.first-div
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    justify-content: center;
+    align-content: center;
+    /* background: url('./images/illustration-working.svg') scroll 50% 50% no-repeat; */
+    height: 100%;
+}
+.grid-display-first
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto;
+}
+.input-bar
+{
+    display: flex;
+    flex-direction: row;
+    background: url('./images/bg-boost-desktop.svg') no-repeat hsl(257, 27%, 26%);
+    height: 100%;
+    padding: 1.5rem;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+}
+.input-bar input
+{
+    border: none;
+    padding: 0.2rem 1rem;
+    width: 25%;
+    border-radius: 0.5rem;
+}
+.input-bar button
+{
+    border: none;
+    padding: 0.2rem 1rem;
+    background: hsl(180, 66%, 49%);
+    color: hsl(0, 0%, 100%);
+    font-size: 18px;
+    border-radius: 0.5rem;
+    font-weight: 700;
+}
+.second-div
+{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: hsl(257, 22%, 78%);
+}
+.container
+{
+    width: 100%;
+    height: 26rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-content: center;
+    justify-content: center;
+}
+.card
+{
+    background: hsl(0, 0%, 100%);;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    height: 20rem;
+    flex-direction: column;
+    color: hsl(0, 0%, 75%);
+}
+.card h2
+{
+    color: hsl(260, 8%, 14%);
+}
+.card img
+{
+    background: hsl(260, 8%, 14%);
+    padding: 1rem;
+    border-radius: 50%;
+    position: relative;
+    top: -2%;
+    width: 3rem;
+}
+.third-div
+{
+    background: url('./images/bg-boost-desktop.svg') no-repeat hsl(257, 27%, 26%);
+    text-align: center;
+    width: 100%;
+    height: 10rem;
+}
+.third-div h1
+{
+    color: hsl(0, 0%, 100%);
+}
+.third-div button, .sign-up , .started
+{
+    border: none;
+    padding: 0.2rem 1rem;
+    background: hsl(180, 66%, 49%);
+    color: hsl(0, 0%, 100%);
+    font-size: 18px;
+    border-radius: 0.8rem;
+    font-weight: 700;
+}
+.fourth-div
+{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background: hsl(260, 8%, 14%);
+}
+.fourth-div h1
+{
+    color: hsl(0, 0%, 100%);
+}
+.fourth-div span
+{
+    color: hsl(257, 22%, 78%);
+}
