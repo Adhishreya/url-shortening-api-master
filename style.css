@@ -41,15 +41,21 @@ nav li
     display: flex;
     flex-direction: column;
 }
+.main > *
+{
+    position: relative;
+}
 .first-div
 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    display: flex;
+    flex-direction: row;
     margin: auto;
     justify-content: center;
     align-content: center;
     /* background: url('./images/illustration-working.svg') scroll 50% 50% no-repeat; */
-    height: 100%;
+    /* height: 100%; */
 }
 .grid-display-first
 {
@@ -63,7 +69,7 @@ nav li
     display: flex;
     flex-direction: row;
     background: url('./images/bg-boost-desktop.svg') no-repeat hsl(257, 27%, 26%);
-    height: 100%;
+    /* height: 100%; */
     padding: 1.5rem;
     justify-content: center;
     margin: auto;
@@ -90,15 +96,19 @@ nav li
 {
     text-align: center;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
     background: hsl(257, 22%, 78%);
 }
 .container
 {
     width: 100%;
-    height: 26rem;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    /* height: 26rem; */
+    /* display: grid;
+    grid-template-columns: repeat(3,1fr); */
+    display: flex;
+    flex-direction: row;
     align-content: center;
     justify-content: center;
 }
@@ -108,7 +118,7 @@ nav li
     width: 80%;
     display: flex;
     margin: auto;
-    height: 20rem;
+    /* height: 20rem; */
     flex-direction: column;
     color: hsl(0, 0%, 75%);
 }
@@ -130,7 +140,7 @@ nav li
     background: url('./images/bg-boost-desktop.svg') no-repeat hsl(257, 27%, 26%);
     text-align: center;
     width: 100%;
-    height: 10rem;
+    /* height: 10rem; */
 }
 .third-div h1
 {
@@ -148,9 +158,22 @@ nav li
 }
 .fourth-div
 {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
+    /* display: grid;
+    grid-template-columns: repeat(5,1fr); */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     background: hsl(260, 8%, 14%);
+    text-align: center;
+    padding: 1rem;
+}
+.fourth-div > *
+{
+    margin: auto;
+}
+#logo
+{
+    color: hsl(0, 0%, 100%);
 }
 .fourth-div h1
 {
@@ -159,4 +182,61 @@ nav li
 .fourth-div span
 {
     color: hsl(257, 22%, 78%);
+}
+#result
+{
+    display: flex;
+    flex-direction: column;
+
+}
+#result button
+{
+    border: none;
+    padding: 0.2rem 1rem;
+    background: hsl(180, 66%, 49%);
+    color: hsl(0, 0%, 100%);
+    font-size: 18px;
+    border-radius: 0.5rem;
+    font-weight: 700;
+}
+#result button:active
+{
+    background: hsl(257, 27%, 26%);
+}
+.result-card
+{
+    display: flex;
+    /* margin: 1re; */
+    flex-direction: row;
+    background: hsl(0, 0%, 75%);
+    padding: 1rem;
+    width: 80%;
+    border-radius: 0.5rem;
+}
+.hamburger
+{
+    width: 2.5rem;
+    height: 5rem;
+    display: none;
+}
+.hamburger > *
+{
+    background: hsl(0, 0%, 75%);
+    width: 2.5rem;
+    height: 3px;
+    margin: 10% auto;
+}
+@media screen and (max-width:680px) {
+    .main > *,.container,.fourth-div
+    {
+        flex-direction: column;
+    }
+    .left,.right
+    {
+        display: none;
+    }
+    .hamburger
+    {
+        display: block;
+    }
 }
