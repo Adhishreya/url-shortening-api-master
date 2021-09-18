@@ -6,6 +6,7 @@ body,html
     width: 100%;
     height: 100%;
     margin: 0;
+    overflow-x: hidden;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
@@ -20,16 +21,30 @@ ul
 }
 nav ul
 {
-    display: inline-flex;
+    /* display: inline-flex; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
 }
 nav
 {
     display: flex;
     flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 100%;
 }
 .left
 {
-    align-self :auto;
+    /* align-self :flex-end; */
+    /* margin: auto;
+    float: right; */
+}
+.right
+{
+    margin-left: auto;
+    float: right;
+    align-self: flex-end;
 }
 nav li 
 {
@@ -38,6 +53,7 @@ nav li
 .main
 {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -53,27 +69,58 @@ nav li
     flex-direction: row;
     margin: auto;
     justify-content: center;
+    justify-content: space-around;
     align-content: center;
     /* background: url('./images/illustration-working.svg') scroll 50% 50% no-repeat; */
     /* height: 100%; */
+}
+.first-div img 
+{
+    width: 50%;
+}
+.first-div img  h1
+{
+    width: fit-content;
+    color: hsl(257, 22%, 78%);
+    /* align-self: center; */
+    margin: 0% auto;
+}
+.first-div span
+{
+    margin: 0% auto;
+    width: 80%;
+    color: hsl(257, 22%, 78%);
+    align-self: center;
 }
 .grid-display-first
 {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin: auto;
+    align-items: center;
+    /* text-align: center; */
+    justify-content: center;
+    margin-left: auto;
+}
+.grid-display-first button
+{
+    width: 10rem;
+    float: left;
 }
 .input-bar
 {
     display: flex;
     flex-direction: row;
-    background: url('./images/bg-boost-desktop.svg') no-repeat hsl(257, 27%, 26%);
+    background: url('./images/bg-shorten-desktop.svg') no-repeat hsl(257, 27%, 26%);
     /* height: 100%; */
-    padding: 1.5rem;
+    padding: 2rem;
     justify-content: center;
+    align-content: center;
+    border-radius: 0.3rem;
     margin: auto;
     width: 50%;
+    align-self: center;
+    position: relative;
+    top: 2rem;
 }
 .input-bar input
 {
@@ -94,17 +141,23 @@ nav li
 }
 .second-div
 {
-    text-align: center;
+    
     width: 100%;
     /* height: 100%; */
     display: flex;
     flex-direction: column;
-    background: hsl(257, 22%, 78%);
+    background: hsl(257, 37%, 85%);
+    padding: 2rem 0rem;
+}
+.second-div h1, .second-div h2
+{
+    text-align: center;
 }
 .container
 {
     width: 100%;
     /* height: 26rem; */
+    margin: auto;
     /* display: grid;
     grid-template-columns: repeat(3,1fr); */
     display: flex;
@@ -115,16 +168,51 @@ nav li
 .card
 {
     background: hsl(0, 0%, 100%);;
-    width: 80%;
+    width: 25%;
     display: flex;
-    margin: auto;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    margin:5% auto;
+    border-radius: 0.5rem;
+    padding: 1rem;
     /* height: 20rem; */
     flex-direction: column;
     color: hsl(0, 0%, 75%);
 }
+.second-div span
+{
+    color:  hsl(257, 7%, 63%);
+    width: 50%;
+    align-self: center;
+    margin: auto;
+    text-align: center;
+}
+
 .card h2
 {
     color: hsl(260, 8%, 14%);
+}
+.card1::after,.card2::after
+{
+    position: relative;
+    width: 10rem;
+    /* display: flex;
+    flex-direction: row; */
+    z-index: -1;
+    height: 0.5rem;
+    background: hsl(180, 66%, 49%);
+    content: "";
+}
+.card1::after
+{
+    top: -3rem;
+    left: 16rem;
+}
+.card2::after
+{
+    top: -4rem;
+    left: 16rem;
 }
 .card img
 {
@@ -132,18 +220,29 @@ nav li
     padding: 1rem;
     border-radius: 50%;
     position: relative;
-    top: -2%;
+    top: -2rem;
+    margin: auto;
     width: 3rem;
+}
+.card2
+{
+    top:2rem;
+}
+.card3
+{
+    top:4rem ;
 }
 .third-div
 {
     background: url('./images/bg-boost-desktop.svg') no-repeat hsl(257, 27%, 26%);
     text-align: center;
     width: 100%;
+    padding: 2rem;
     /* height: 10rem; */
 }
 .third-div h1
-{
+{   
+    width: 100%;
     color: hsl(0, 0%, 100%);
 }
 .third-div button, .sign-up , .started
@@ -166,6 +265,7 @@ nav li
     background: hsl(260, 8%, 14%);
     text-align: center;
     padding: 1rem;
+    width: 100%;
 }
 .fourth-div > *
 {
@@ -230,6 +330,9 @@ nav li
     .main > *,.container,.fourth-div
     {
         flex-direction: column;
+        width: 100%;
+        padding: 1rem;
+        margin: auto;
     }
     .left,.right
     {
@@ -238,5 +341,38 @@ nav li
     .hamburger
     {
         display: block;
+        margin-left: auto;
+        padding: 1rem;
+        float: right;
+        /* align-self: flex-end; */
+    }
+    .first-div
+    {
+        flex-direction: column-reverse;
+    }
+    .card
+    {
+        width: 80%;
+        margin: 5% auto;
+    }
+    .input-bar
+    {
+        background: url('./images/bg-shorten-mobile.svg') no-repeat hsl(257, 27%, 26%);
+        flex-direction: column;
+        width: 80%;
+    }
+    .input-bar>*
+    {
+        background: saddlebrown;
+        width: 100%;
+    }
+
+    .third-div
+    {
+        background: url('./images/bg-boost-mobile.svg') no-repeat hsl(257, 27%, 26%);
+    }
+    .first-div img 
+    {
+        width: 100%;
     }
 }

@@ -30,10 +30,8 @@ buttonSearch.addEventListener('click',async ()=>{
     });
     resultArray = tempArray;
     resultArray.sort((a,b)=>a.length-b.length);
-    // console.log(resultArray);
     
     localStorageArray = JSON.parse(localStorage.getItem('UrlShortner'));
-    // if(localStorage)
     var obj = {"orig":inputValue,"short":resultArray[1]};
     if(!(localStorageArray.map((ele)=>{
         return ele.orig}).includes(inputValue)))
@@ -66,4 +64,8 @@ buttonSearch.addEventListener('click',async ()=>{
         })
     });
 });
+
+window.addEventListener('close',()=>{
+    localStorageArray.removeItem('UrlShortner');
+})
 
