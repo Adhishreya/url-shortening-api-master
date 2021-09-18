@@ -5,6 +5,30 @@ var inputValue = "";
 var shortInput = "";
 var resultArray = [];
 var menuElement = document.getElementsByClassName('hamburger')[0];
+var leftElements = document.getElementsByClassName('left')[0];
+var rightElements = document.getElementsByClassName('right')[0];
+var blockElement = document.getElementById('block-display');
+var visible = false;
+menuElement.addEventListener('click',()=>{
+    // leftElements.style="display:flex;flex-direction:column";
+    // rightElements.style="display:flex;flex-direction:column";
+    // leftElements.style="display:block;margin-auto;border-bottom:2px solid  hsl(257, 7%, 63%);width:80%";
+    // rightElements.style="display:block;margin-auto;align-self:center;margin:auto;width:100%";
+    // blockElement.style="background:hsl(255, 11%, 22%);display:flex;text-align:center;flex-direction:column;align-items:center;justify-content:center;position:relative;top:10rem;width:100%";
+    visible = ~visible;
+    if(visible)
+{
+    leftElements.style="display:block;margin-auto;border-bottom:2px solid  hsl(257, 7%, 63%);width:80%";
+    rightElements.style="display:block;margin-auto;align-self:center;margin:auto;width:100%";
+    blockElement.style="background:hsl(255, 11%, 22%);display:flex;text-align:center;flex-direction:column;align-items:center;justify-content:center;position:relative;top:10rem;width:100%";
+}
+else
+{
+    blockElement.style="display:none"
+}
+});
+
+
 
 var localStorageArray = [];
 
