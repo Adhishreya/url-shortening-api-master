@@ -5,6 +5,7 @@ var inputValue = "";
 var shortInput = "";
 var resultArray = [];
 var menuElement = document.getElementsByClassName('hamburger')[0];
+
 var localStorageArray = [];
 
 if(JSON.parse(localStorage.getItem('UrlShortner')).length==0)
@@ -46,7 +47,7 @@ buttonSearch.addEventListener('click',async ()=>{
         var newElementSpan = document.createElement("h4");
         newElementHeader.innerHTML =x.orig;
         newElementButton.innerHTML = "Copy";
-        newElementSpan.innerHTML = x.short;
+        newElementSpan.innerHTML = "https://"+x.short;
         newElement.className = "result-card";
         // newElement.appendChild(document.createElement("h1"));
         newElementButton.className = "result-button"
@@ -61,7 +62,7 @@ buttonSearch.addEventListener('click',async ()=>{
         {
             newElementButton.innerHTML = "Copied";
             newElementButton.style.background = "hsl(257, 27%, 26%)"
-            navigator.clipboard.writeText(newElementHeader.innerHTML);
+            navigator.clipboard.writeText(newElementSpan.innerHTML);
         })
     });
 });
