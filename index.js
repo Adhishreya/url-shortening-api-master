@@ -9,6 +9,7 @@ var leftElements = document.getElementsByClassName('left')[0];
 var rightElements = document.getElementsByClassName('right')[0];
 var blockElement = document.getElementById('block-display');
 var inputElement = document.getElementsByTagName('input')[0];
+var errorElement = document.getElementsByClassName('error')[0];
 var visible = false;
 menuElement.addEventListener('click',()=>{
     // leftElements.style="display:flex;flex-direction:column";
@@ -66,6 +67,7 @@ function createDOMs(x)
 buttonSearch.addEventListener('click',async ()=>{
     if(inputValue.length>0)
     {
+        errorElement.style="display:none";
         inputElement.style="border:none";
       var result = await  fetch(url+inputValue).then(res=>res.json()).then(res=>{
             return  Object.values(res.result);
@@ -106,6 +108,7 @@ buttonSearch.addEventListener('click',async ()=>{
 else
 {
     inputElement.style="border:2px solid hsl(0, 87%, 67%)";
+    errorElement.style="display:flex;color:hsl(0, 87%, 67%)";
 }
 });
 

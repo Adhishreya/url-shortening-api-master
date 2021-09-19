@@ -64,9 +64,9 @@ nav li
     display: flex;
     flex-direction: column;
 }
-.main > *
+.main *
 {
-    position: relative;
+    position: relative!important;
 }
 .first-div
 {
@@ -115,8 +115,8 @@ nav li
 }
 .input-bar
 {
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
     background: url('./images/bg-shorten-desktop.svg') no-repeat hsl(257, 27%, 26%);
     /* height: 100%; */
     padding: 2rem;
@@ -124,27 +124,36 @@ nav li
     align-content: center;
     border-radius: 0.3rem;
     margin: auto;
-    width: 50%;
+    width: 80%;
     align-self: center;
     position: relative;
     top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
 }
 .input-bar input
 {
     border: none;
-    padding: 0.2rem 1rem;
+    /* padding: 0.2rem 1rem;
     width: 25%;
+    border-radius: 0.4rem; */
+    padding: 1rem 3rem;
+    width: 80%;
+    align-items: flex-start;
     border-radius: 0.4rem;
+    margin: auto;
 }
 .input-bar button
 {
     border: none;
-    padding: 0.2rem 1rem;
+    padding: 1rem 1rem;
     background: hsl(180, 66%, 49%);
     color: hsl(0, 0%, 100%);
     font-size: 18px;
     border-radius: 0.5rem;
     font-weight: 700;
+    width: 80%
 }
 .second-div
 {
@@ -244,12 +253,16 @@ nav li
     background: url('./images/bg-boost-desktop.svg') no-repeat hsl(257, 27%, 26%);
     text-align: center;
     width: 100%;
-    padding: 2rem;
+    padding: 2rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     /* height: 10rem; */
 }
 .third-div h1
 {   
-    width: 100%;
+    width: fit-content;
     color: hsl(0, 0%, 100%);
 }
 .third-div button, .sign-up , .started
@@ -272,11 +285,13 @@ nav li
     background: hsl(260, 8%, 14%);
     text-align: center;
     padding: 1rem;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
-.fourth-div > *
+.fourth-div *
 {
-    margin: auto;
+    /* margin: auto!important; */
 }
 #logo
 {
@@ -363,7 +378,7 @@ nav li
     height: 5rem;
     display: none;
 }
-.hamburger > *
+.hamburger *
 {
     background: hsl(0, 0%, 75%);
     width: 2.5rem;
@@ -373,14 +388,16 @@ nav li
 .error
 {
     color: hsl(0, 87%, 67%);
+    display: none;
 }
 @media screen and (max-width:780px) {
-    .main > *,.container,.fourth-div
+    .main *,.container,.fourth-div
     {
         flex-direction: column;
         width: 100%;
-        padding: 1rem;
-        margin: auto;
+        /* padding: 1rem;
+        margin: auto; */
+        padding: 2rem 0rem;
     }
     #block-display
     {}
@@ -411,13 +428,20 @@ nav li
         background: url('./images/bg-shorten-mobile.svg') no-repeat hsl(257, 27%, 26%);
         flex-direction: column;
         width: 80%;
+        display: flex!important;
+        justify-content: center;
+        align-items: center;
     }
     .input-bar *
     {
         /* background: saddlebrown; */
         width: 85%!important;
+        padding: 0.7rem 0rem!important;
     }
-
+    /* .input-bar input 
+    {
+        padding: 0.5rem 0rem!important;
+    } */
     .third-div
     {
         background: url('./images/bg-boost-mobile.svg') no-repeat hsl(257, 27%, 26%);
@@ -435,5 +459,21 @@ nav li
         width: 100%!important;
         left: 0rem!important;
         /* background: red; */
+    }
+    .card1::after,.card2::after
+    {
+    top: 4rem;
+    left: auto;
+    align-self: center;
+    }
+    .card1::after, .card2::after {
+        position: relative;
+        width: 5rem;
+        /* z-index: -1; */
+        height: 0.5rem;
+        background: hsl(180, 66%, 49%);
+        content: "";
+        transform: rotate(
+    90deg);
     }
 }
