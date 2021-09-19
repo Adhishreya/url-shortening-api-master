@@ -212,9 +212,7 @@ nav li
 .card1::after,.card2::after
 {
     position: relative;
-    width: 10rem;
-    /* display: flex;
-    flex-direction: row; */
+    width: 8rem;
     z-index: -1;
     height: 0.5rem;
     background: hsl(180, 66%, 49%);
@@ -222,13 +220,15 @@ nav li
 }
 .card1::after
 {
-    top: -3rem;
-    left: 16rem;
+    top: -6rem;
+    left: 40%;
+    align-self: flex-end;
 }
 .card2::after
 {
-    top: -4rem;
-    left: 16rem;
+    top: -7rem;
+    left: 40%;
+    align-self: flex-end;
 }
 .card img
 {
@@ -326,9 +326,28 @@ nav li
     position: relative;
     left: 2%;
 }
+button:hover
+{
+    background: hsl(180, 51%, 77%);
+}
+li,button
+{
+    cursor: pointer;
+}
 #result button:active
 {
     background: hsl(257, 27%, 26%);
+}
+.icons 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.icons li 
+{
+    margin: 2%;
 }
 .result-card
 {
@@ -475,5 +494,25 @@ nav li
         content: "";
         transform: rotate(
     90deg);
+    }
+    .block
+    {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background:hsl(255, 11%, 22%)
+    }
+    .left,.right
+    {
+        display: none;
+    border-bottom: 2px solid rgb(158, 154, 167);
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    nav li {
+        margin: 1rem 0rem;
+        color: hsl(257, 22%, 78%);
     }
 }

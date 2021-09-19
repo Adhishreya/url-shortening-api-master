@@ -11,6 +11,15 @@ var blockElement = document.getElementById('block-display');
 var inputElement = document.getElementsByTagName('input')[0];
 var errorElement = document.getElementsByClassName('error')[0];
 var visible = false;
+// var style = {
+//     "display": "none",
+//     "border-bottom": "2px solid rgb(158, 154, 167)",
+//     "width": "100%",
+//     "flex-direction": "column",
+//     "justify-content": "center",
+//     "align-items": "center"
+// }
+var cssStyle = "display: flex;border-bottom: 2px solid rgb(158, 154, 167);width: 100%;flex-direction: column;justify-content: center;align-items: center;"
 menuElement.addEventListener('click',()=>{
     // leftElements.style="display:flex;flex-direction:column";
     // rightElements.style="display:flex;flex-direction:column";
@@ -20,9 +29,12 @@ menuElement.addEventListener('click',()=>{
     visible = ~visible;
     if(visible)
 {
-    leftElements.style="display:block;margin-auto;border-bottom:2px solid  hsl(257, 7%, 63%);width:80%";
-    rightElements.style="display:block;margin-auto;align-self:center;margin:auto;width:100%";
-    blockElement.style="background:hsl(255, 11%, 22%);display:flex;text-align:center;flex-direction:column;align-items:center;justify-content:center;position:relative;top:10rem;width:100%";
+    // leftElements.style="display:block;margin-auto;border-bottom:2px solid  hsl(257, 7%, 63%);width:80%";
+    // rightElements.style="display:block;margin-auto;align-self:center;margin:auto;width:100%";
+    // blockElement.style="background:hsl(255, 11%, 22%);display:flex;text-align:center;flex-direction:column;align-items:center;justify-content:center;position:relative;top:10rem;width:100%";
+    blockElement.style=" display: flex;flex-direction: column;position: absolute;background:hsl(255, 11%, 22%);top:10%;width:100%";
+    leftElements.style=cssStyle;
+    rightElements.style=cssStyle;
 }
 else
 {
@@ -116,3 +128,18 @@ window.addEventListener('close',()=>{
     localStorageArray.removeItem('UrlShortner');
 })
 
+window.addEventListener('resize',()=>{
+    // console.log(window.innerWidth);
+    if(innerWidth <= 780)
+    {
+        // blockElement.style=" display: flex;flex-direction: column;position: absolute;background:hsl(255, 11%, 22%);top:10%;width:100%";
+        // leftElements.style=cssStyle;
+        // rightElements.style=cssStyle;
+    }
+    else
+    {
+        blockElement.style="display: flex;flex-direction: row;width: 100%;"
+        rightElements.style=" margin-left: auto;float: right;align-self: flex-end;"
+        leftElements.style="flex-direction:row"
+    }
+})
