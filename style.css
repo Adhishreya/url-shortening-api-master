@@ -5,7 +5,7 @@ body,html
 {
     width: 100%;
     height: 100%;
-    font-size: 18px;
+    /* font-size: 18px; */
     margin: 0;
     overflow-x: hidden;
     padding: 0;
@@ -134,7 +134,7 @@ nav li
     border: none;
     padding: 0.2rem 1rem;
     width: 25%;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
 }
 .input-bar button
 {
@@ -294,17 +294,22 @@ nav li
 {
     display: flex;
     flex-direction: column;
-
 }
 #result button
 {
     border: none;
-    padding: 0.2rem 1rem;
+    padding: 0rem 1rem;
     background: hsl(180, 66%, 49%);
     color: hsl(0, 0%, 100%);
+    height: fit-content;
     font-size: 18px;
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
     font-weight: 700;
+    justify-self: center;
+    align-self: center;
+    margin: auto;
+    position: relative;
+    left: 2%;
 }
 #result button:active
 {
@@ -312,13 +317,45 @@ nav li
 }
 .result-card
 {
-    display: flex;
+    /* display: flex; */
     /* margin: 1re; */
-    flex-direction: row;
-    background: hsl(0, 0%, 75%);
-    padding: 1rem;
-    width: 80%;
+    /* flex-direction: row;
+    background: hsl(0, 0%, 100%);
+    width: 90%;
+    height: 50%;
     border-radius: 0.5rem;
+    margin: 2% auto; */
+    /* padding: 1rem;
+    width: 80%;
+    height: 50%;
+    border-radius: 0.5rem; */
+
+    display: flex;
+    flex-direction: row;
+    background: hsl(0, 0%, 100%);
+    width: 90%;
+    height: 50%;
+    border-radius: 0.5rem;
+    margin: 2% auto;
+    padding: 0rem 1.5rem;
+
+}
+#result h4,#result h5
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+#result h4 
+{
+    margin-left: auto;
+    float: right;
+    color:  hsl(180, 66%, 49%);
+    align-self: flex-end;
+    width: 50%;
+    left: 19%;
+    position: relative;
 }
 .hamburger
 {
@@ -375,10 +412,10 @@ nav li
         flex-direction: column;
         width: 80%;
     }
-    .input-bar>*
+    .input-bar *
     {
-        background: saddlebrown;
-        width: 100%;
+        /* background: saddlebrown; */
+        width: 85%!important;
     }
 
     .third-div
@@ -388,5 +425,15 @@ nav li
     .first-div img 
     {
         width: 100%;
+    }
+    .result-card
+    {
+        flex-direction: column;
+    }
+    .result-card *
+    {
+        width: 100%!important;
+        left: 0rem!important;
+        /* background: red; */
     }
 }

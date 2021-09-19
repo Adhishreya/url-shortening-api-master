@@ -1,13 +1,14 @@
 var urlInput = document.getElementById("search");
 var buttonSearch = document.getElementById("process");
 var resultElement = document.getElementById("result");
-var inputValue = "";
+var inputValue = "",display =true;
 var shortInput = "";
 var resultArray = [];
 var menuElement = document.getElementsByClassName('hamburger')[0];
 var leftElements = document.getElementsByClassName('left')[0];
 var rightElements = document.getElementsByClassName('right')[0];
 var blockElement = document.getElementById('block-display');
+var inputElement = document.getElementsByTagName('input')[0];
 var visible = false;
 menuElement.addEventListener('click',()=>{
     // leftElements.style="display:flex;flex-direction:column";
@@ -32,22 +33,47 @@ else
 
 var localStorageArray = [];
 
-if(JSON.parse(localStorage.getItem('UrlShortner')).length==0)
+if(JSON.parse(localStorage.getItem('UrlShortner')) == null)
 {localStorage.setItem('UrlShortner',JSON.stringify(localStorageArray));}
 var url = "https://api.shrtco.de/v2/shorten?url="
 urlInput.addEventListener('input',(e)=>{
     inputValue = e.target.value;
 });
+
+function createDOMs(x)
+{
+    var newElement = document.createElement("div");
+    var newElementButton = document.createElement("button");
+    var newElementHeader = document.createElement("h5");
+    var newElementSpan = document.createElement("h4");
+    newElementHeader.innerHTML =x.orig;
+                newElementButton.innerHTML = "Copy";
+                newElementSpan.innerHTML = "https://"+x.short;
+                newElement.className = "result-card";
+                newElementButton.className = "result-button"
+                newElement.appendChild(newElementHeader);
+                newElement.appendChild(newElementSpan);
+                newElement.appendChild(newElementButton);
+                resultElement.appendChild(newElement);
+                newElementButton.addEventListener('click',()=>
+                {
+                    newElementButton.innerHTML = "Copied";
+                    newElementButton.style.background = "hsl(257, 27%, 26%)"
+                    navigator.clipboard.writeText(newElementSpan.innerHTML);
+                });
+}
+
 buttonSearch.addEventListener('click',async ()=>{
     if(inputValue.length>0)
     {
+        inputElement.style="border:none";
       var result = await  fetch(url+inputValue).then(res=>res.json()).then(res=>{
             return  Object.values(res.result);
         });
         result = result.slice(1);
         result.pop();
         resultArray = result;
-    }
+    
     var pattern = /http/;
     var tempArray = resultArray.filter(ele=>{
         return (!ele.match(pattern));
@@ -57,36 +83,30 @@ buttonSearch.addEventListener('click',async ()=>{
     
     localStorageArray = JSON.parse(localStorage.getItem('UrlShortner'));
     var obj = {"orig":inputValue,"short":resultArray[1]};
-    if(!(localStorageArray.map((ele)=>{
+    if(localStorageArray.length == 0 || !(localStorageArray.map((ele)=>{
         return ele.orig}).includes(inputValue)))
     {localStorageArray.push(obj);}
     console.log(localStorageArray);
     localStorage.setItem('UrlShortner',JSON.stringify(localStorageArray));
-    Array.from(localStorageArray,(x)=>{
-        var newElement = document.createElement("div");
-        var newElementButton = document.createElement("button");
-        var newElementHeader = document.createElement("h5");
-        var newElementSpan = document.createElement("h4");
-        newElementHeader.innerHTML =x.orig;
-        newElementButton.innerHTML = "Copy";
-        newElementSpan.innerHTML = "https://"+x.short;
-        newElement.className = "result-card";
-        // newElement.appendChild(document.createElement("h1"));
-        newElementButton.className = "result-button"
-        // console.log(newElement);
-        // newElement.innerHTML = x;
-        newElement.appendChild(newElementSpan);
-        newElement.appendChild(newElementHeader);
-        newElement.appendChild(newElementButton);
-        resultElement.appendChild(newElement);
 
-        newElementButton.addEventListener('click',()=>
-        {
-            newElementButton.innerHTML = "Copied";
-            newElementButton.style.background = "hsl(257, 27%, 26%)"
-            navigator.clipboard.writeText(newElementSpan.innerHTML);
-        })
-    });
+    
+    if(localStorageArray &&  display && localStorageArray.length>0)
+     {   
+            display = false;
+            Array.from(localStorageArray,(x)=>{
+            // alert(12);
+                createDOMs(x);
+            });
+    }
+    else
+    {
+        createDOMs(obj);
+    }
+}
+else
+{
+    inputElement.style="border:2px solid hsl(0, 87%, 67%)";
+}
 });
 
 window.addEventListener('close',()=>{
